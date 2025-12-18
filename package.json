@@ -11,6 +11,8 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.1",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.2",
     "next": "16.0.10",
     "react": "19.2.1",
     "react-dom": "19.2.1"

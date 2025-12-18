@@ -2,6 +2,29 @@
 
 @reference utilities;
 
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply text-sm text-amber-50;
+  }
+}
+
 @layer components {
   .icon {
     @apply text-blue-400 text-xl;
