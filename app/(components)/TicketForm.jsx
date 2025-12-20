@@ -68,62 +68,49 @@ const TicketForm = () => {
           <option value={"Project"}>Project</option>
         </select>
 
-        <label>Priority</label>
+        <label className="font-medium">Priority</label>
+
+        <div className="flex items-center gap-6 ml-2">
+          {[1, 2, 3, 4, 5].map((value) => (
+            <label
+              key={value}
+              htmlFor={`priority-${value}`}
+              className="flex items-center gap-1 cursor-pointer">
+              <input
+                id={`priority-${value}`}
+                name="priority"
+                type="radio"
+                value={value}
+                checked={formData.priority == value}
+                onChange={handleChange}
+                className="accent-blue-500"
+              />
+              <span>{value}</span>
+            </label>
+          ))}
+        </div>
+
+        <label>Label</label>
         <input
-          id="priority-1"
-          name="priority"
-          type="radio"
+          type="range"
+          id="progress"
+          name="progress"
+          value={formData.progress}
+          min="0"
+          max="100"
           onChange={handleChange}
-          required
-          value={1}
-          checked={formData.priority == "1"}
-          className="bg-white text-black border border-gray-200 rounded p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
         />
-        <label>1</label>
-        <input
-          id="priority-2"
-          name="priority"
-          type="radio"
+        <label>Status</label>
+        <select
+          name="status"
+          value={formData.status}
           onChange={handleChange}
-          required
-          value={2}
-          checked={formData.priority == "2"}
-          className="bg-white text-black border border-gray-200 rounded p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
-        />
-        <label>2</label>
-        <input
-          id="priority-3"
-          name="priority"
-          type="radio"
-          onChange={handleChange}
-          required
-          value={3}
-          checked={formData.priority == "3"}
-          className="bg-white text-black border border-gray-200 rounded p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
-        />
-        <label>3</label>
-        <input
-          id="priority-4"
-          name="priority"
-          type="radio"
-          onChange={handleChange}
-          required
-          value={4}
-          checked={formData.priority == "4"}
-          className="bg-white text-black border border-gray-200 rounded p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
-        />
-        <label>4</label>
-        <input
-          id="priority-5"
-          name="priority"
-          type="radio"
-          onChange={handleChange}
-          required
-          value={5}
-          checked={formData.priority == "5"}
-          className="bg-white text-black border border-gray-200 rounded p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2"
-        />
-        <label>5</label>
+          className="bg-white text-black border border-gray-200 rounded p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 ml-2">
+          <option value={"not started"}>Not Started</option>
+          <option value={"started"}>Started</option>
+          <option value={"done"}>Done</option>
+        </select>
+        <input type="submit" className="btn" value="Create Ticket" />
       </form>
     </div>
   );
