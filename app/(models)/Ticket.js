@@ -3,6 +3,19 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 
+//NEW FEATURE
+const commentSchema = new Schema({
+  text: {
+    type: String,
+    required: true,
+    minlength: 1,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 const ticketSchema = new Schema(
   {
     title: String,
@@ -12,6 +25,8 @@ const ticketSchema = new Schema(
     progress: Number,
     status: String,
     active: Boolean,
+    //NEW FEATURE
+    comments: [commentSchema],
   },
   {
     timestamps: true,

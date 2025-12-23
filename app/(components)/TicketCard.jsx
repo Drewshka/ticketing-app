@@ -21,6 +21,8 @@ const TicketCard = ({ ticket }) => {
     return formattedDate;
   };
 
+  console.log("comments", ticket.comments);
+
   return (
     <div className="flex flex-col bg-blue-500 hover:bg-card-hover rounded-md shadow-lg p-3 m-2">
       <div className="flex mb-3">
@@ -38,6 +40,13 @@ const TicketCard = ({ ticket }) => {
           <div className="flex flex-col">
             <p className="text-xs my-1">{formatTimestamp(ticket.createdAt)}</p>
             <ProgressDisplay progress={ticket.progress} />
+            {/* NEW FEATURE */}
+            {ticket.comments?.length > 0 && (
+              <span className="text-xs text-gray-200 mt-1">
+                🗨 {ticket.comments.length} comment
+                {ticket.comments.length > 1 && "s"}
+              </span>
+            )}
           </div>
           <div className="ml-auto flex items-end">
             <StatusDisplay status={ticket.status} />

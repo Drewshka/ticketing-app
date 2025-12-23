@@ -2,6 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+//NEW FEATURE
+import CommentForm from "./CommentForm";
+import CommentList from "./CommentList";
 
 const TicketForm = ({ ticket }) => {
   const EDITMODE = ticket._id === "new" ? false : true;
@@ -152,6 +155,13 @@ const TicketForm = ({ ticket }) => {
           value={EDITMODE ? "Update your Ticket" : "Create Your Ticket"}
         />
       </form>
+      {/* NEW FEATURE */}
+      {EDITMODE && (
+        <div className="w-full max-w-md mt-8">
+          <CommentList comments={ticket.comments} />
+          <CommentForm ticket={ticket} />
+        </div>
+      )}
     </div>
   );
 };
