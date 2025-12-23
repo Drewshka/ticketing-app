@@ -27,3 +27,23 @@ export async function DELETE(req, { params }) {
     );
   }
 }
+
+export async function PUT(req, { params }) {
+  try {
+    const { id } = await params;
+
+    const body = await req.json();
+    const ticketData = body.formData;
+
+    const updateTicketData = await Ticket.findByIdAndUpdate(id, {
+      ...ticketData,
+    });
+    console.log("PUT ran!", ticketData);
+    return NextResponse.json({ message: "Ticket Updated" }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to update ticket" },
+      { status: 500 }
+    );
+  }
+}
