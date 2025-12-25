@@ -8,7 +8,7 @@ const CommentList = ({ comments = [] }) => {
       <h4 className="font-semibold">Comments</h4>
       {comments.map((comment, index) => (
         <div key={index} className="rounded border p-2 text-sm bg-gray-50">
-          <p>{comment.text}</p>
+          <p className="text-gray-950">{comment.text}</p>
           <span className="text-xs text-gray-500">
             {new Date(comment.createdAt).toLocaleString()}
           </span>
