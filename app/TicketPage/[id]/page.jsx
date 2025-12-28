@@ -1,5 +1,3 @@
-// import TicketCard from "@/app/(components)/TicketCard";
-
 import TicketForm from "@/app/(components)/TicketForm";
 
 const getTicketById = async (id) => {

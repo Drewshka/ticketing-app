@@ -6,7 +6,6 @@ export async function POST(req) {
   try {
     const body = await req.json();
     const ticketData = body.formData;
-    // await Ticket.create(ticketData);
 
     //NEW FEATURE
     await Ticket.create({

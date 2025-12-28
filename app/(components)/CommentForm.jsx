@@ -43,11 +43,12 @@ const CommentForm = ({ ticket }) => {
         onChange={(e) => setText(e.target.value)}
         required
       />
-      <button
+      <input
         disabled={loading}
-        className="rounded bg-blue-600 px-3 py-1 text-white disabled:opacity-50">
-        {loading ? "Adding..." : "Add Comment"}
-      </button>
+        type="submit"
+        className="btn"
+        value={loading ? "Adding..." : "Add Comment"}
+      />
     </form>
   );
 };
