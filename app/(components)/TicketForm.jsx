@@ -69,12 +69,17 @@ const TicketForm = ({ ticket }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8"> */}
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-8">
         {/* Ticket Form */}
-        <div className="md:col-span-2">
-          <form
+        {/* <div className="md:col-span-2"> */}
+        <div className="md:col-start-2">
+          {/* <form
             className="flex flex-col gap-3 w-full max-w-md"
             method="post"
+            onSubmit={handleSubmit}> */}
+          <form
+            className="flex flex-col gap-3 w-full max-w-md mx-auto bg-slate-800 p-6 rounded-lg shadow"
             onSubmit={handleSubmit}>
             <h3>{EDITMODE ? "Update your Ticket" : "Create Your Ticket"}</h3>
             <label htmlFor="title">Title</label>
@@ -160,17 +165,30 @@ const TicketForm = ({ ticket }) => {
           </form>
         </div>
         {/* NEW FEATURE */}
+        {/* RIGHT COLUMN */}
         {EDITMODE && (
-          <div className="md:col-span-1 bg-slate-800 p-6 rounded-lg shadow h-fit mt-26">
+          <div className="md:col-start-3 bg-slate-800 p-6 rounded-lg shadow h-fit">
             <h4 className="text-md font-semibold mb-4">💬 Comments</h4>
 
             <div className="max-h-[400px] overflow-y-auto mb-4 pr-2">
-              <CommentList comments={ticket.comments} />
+              <CommentList comments={ticket.comments} ticketId={ticket._id} />
             </div>
 
             <CommentForm ticket={ticket} />
           </div>
         )}
+
+        {/* {EDITMODE && (
+          <div className="md:col-span-1 bg-slate-800 p-6 rounded-lg shadow h-fit mt-26">
+            <h4 className="text-md font-semibold mb-4">💬 Comments</h4>
+
+            <div className="max-h-[400px] overflow-y-auto mb-4 pr-2">
+              <CommentList comments={ticket.comments} ticketId={ticket._id} />
+            </div>
+
+            <CommentForm ticket={ticket} />
+          </div>
+        )} */}
       </div>
     </div>
   );
