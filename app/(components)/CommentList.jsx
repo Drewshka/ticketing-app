@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 const CommentList = ({ comments = [], ticketId }) => {
   const router = useRouter();
-  const API_URL = process.env.API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   if (comments.length === 0) {
     return <p className="text-sm text-gray-500 mt-4">No comments yet.</p>;

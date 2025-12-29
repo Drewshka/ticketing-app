@@ -1,6 +1,5 @@
 import Ticket from "../../(models)/Ticket";
 import { NextResponse } from "next/server";
-import { getTickets } from "@/app/(models)/getTickets";
 
 export async function POST(req) {
   console.log("POST RAN");
@@ -19,11 +18,6 @@ export async function POST(req) {
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }
 }
-
-// export async function GET() {
-//   const tickets = await getTickets();
-//   return NextResponse.json({ tickets });
-// }
 
 export async function GET() {
   try {
