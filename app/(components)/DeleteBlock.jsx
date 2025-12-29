@@ -10,7 +10,7 @@ const DeleteBlock = ({ id }) => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const deleteTicket = async () => {
-    const res = await fetch(`${API_URL}/api/Tickets/${id}`, {
+    const res = await fetch(`/api/Tickets/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {

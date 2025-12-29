@@ -11,12 +11,9 @@ const CommentList = ({ comments = [], ticketId }) => {
   }
 
   const handleDelete = async (commentId) => {
-    const res = await fetch(
-      `${API_URL}/api/Tickets/${ticketId}/comments/${commentId}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const res = await fetch(`/api/Tickets/${ticketId}/comments/${commentId}`, {
+      method: "DELETE",
+    });
 
     if (!res.ok) {
       throw new Error("Failed to delete comment");

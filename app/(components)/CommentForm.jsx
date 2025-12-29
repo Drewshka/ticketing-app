@@ -14,7 +14,7 @@ const CommentForm = ({ ticket }) => {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch(`${API_URL}/api/Tickets/${ticket._id}/comments`, {
+    const res = await fetch(`/api/Tickets/${ticket._id}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
