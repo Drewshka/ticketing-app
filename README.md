@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎫 Ticketing App
 
-## Getting Started
+A full-stack **Next.js ticketing application** built with **React**, **MongoDB Atlas**, and **Tailwind CSS**.  
+This project demonstrates a complete CRUD workflow, modern App Router patterns, and server/client component interaction.
 
-First, run the development server:
+🔗 **Live Demo:** https://ticketing-app-ldk9.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- ✅ Create, read, update, and delete tickets
+- 💬 Add and delete comments on individual tickets
+- 🗂️ Tickets grouped by category
+- 📊 Priority, status, and progress tracking
+- 🧠 Server Components + Client Components (Next.js App Router)
+- 🌐 MongoDB Atlas for persistent data storage
+- 🎨 Responsive UI styled with Tailwind CSS
+- 🚀 Deployed on Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**
+  - Next.js (App Router)
+  - React
+  - Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Backend**
+  - Next.js API Routes
+  - MongoDB Atlas
+  - Mongoose ODM
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Deployment**
+  - Vercel
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📸 Screenshots
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img width="1738" height="723" alt="Screenshot 2025-12-29 at 4 49 22 PM" src="https://github.com/user-attachments/assets/63a6fa61-e719-4c00-8bc9-8535a7b8f5c9" />
+<img width="1906" height="916" alt="Screenshot 2025-12-29 at 4 50 19 PM" src="https://github.com/user-attachments/assets/fd6e4174-3ff3-4050-8c76-9a54c3ceb66b" />
+
+
+---
+
+## 🧩 Data Models
+
+### Ticket
+- Title
+- Description
+- Category
+- Priority
+- Status
+- Progress
+- Created At
+- Comments (embedded)
+
+### Comment
+- Text
+- Created At
+
+---
+
+## 🚦 CRUD Functionality
+
+### Tickets
+- Create new tickets
+- Edit existing tickets
+- Delete tickets
+- View tickets by category
+
+### Comments
+- Add comments to tickets
+- Delete individual comments
+
+---
+
+## 🧪 API Routes
+
+| Method | Route | Description |
+|------|------|-------------|
+| GET | `/api/Tickets` | Fetch all tickets |
+| POST | `/api/Tickets` | Create a new ticket |
+| GET | `/api/Tickets/:id` | Fetch a single ticket |
+| PUT | `/api/Tickets/:id` | Update a ticket |
+| DELETE | `/api/Tickets/:id` | Delete a ticket |
+| POST | `/api/Tickets/:id/comments` | Add a comment |
+| DELETE | `/api/Tickets/:id/comments/:commentId` | Delete a comment |
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file and add:
+
+```env
+MONGODB_URI=your_mongodb_atlas_connection_string
+NEXT_PUBLIC_API_URL=http://localhost:3000
