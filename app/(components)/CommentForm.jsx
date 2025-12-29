@@ -7,13 +7,14 @@ const CommentForm = ({ ticket }) => {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const API_URL = process.env.API_URL;
 
   const handleSubmit = async (e) => {
     console.log("id", ticket._id);
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch(`/api/Tickets/${ticket._id}/comments`, {
+    const res = await fetch(`${API_URL}/api/Tickets/${ticket._id}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

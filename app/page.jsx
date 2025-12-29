@@ -1,15 +1,27 @@
 import { get } from "mongoose";
 import TicketCard from "./(components)/TicketCard";
+import Ticket from "./(models)/Ticket";
+// import { getTickets } from "./(models)/getTickets";
+
+// const getTickets = async () => {
+//   try {
+//     const res = await fetch("/api/Tickets", {
+//       cache: "no-store",
+//     });
+
+//     return res.json();
+//   } catch (error) {
+//     console.log("Failed to get tickets", error);
+//   }
+// };
 
 const getTickets = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/Tickets", {
-      cache: "no-store",
-    });
-
-    return res.json();
+    const tickets = await Ticket.find().lean(); // .lean() returns plain JS objects
+    return { tickets };
   } catch (error) {
-    console.log("Failed to get tickets", error);
+    console.error("Failed to get tickets", error);
+    return { tickets: [] }; // fail-safe
   }
 };
 

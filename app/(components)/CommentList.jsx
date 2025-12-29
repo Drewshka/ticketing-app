@@ -4,15 +4,19 @@ import { useRouter } from "next/navigation";
 
 const CommentList = ({ comments = [], ticketId }) => {
   const router = useRouter();
+  const API_URL = process.env.API_URL;
 
   if (comments.length === 0) {
     return <p className="text-sm text-gray-500 mt-4">No comments yet.</p>;
   }
 
   const handleDelete = async (commentId) => {
-    const res = await fetch(`/api/Tickets/${ticketId}/comments/${commentId}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `${API_URL}/api/Tickets/${ticketId}/comments/${commentId}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to delete comment");

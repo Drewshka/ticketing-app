@@ -8,6 +8,8 @@ import CommentList from "./CommentList";
 
 const TicketForm = ({ ticket }) => {
   const EDITMODE = ticket._id === "new" ? false : true;
+  const API_URL = process.env.API_URL;
+
   const router = useRouter();
 
   const startingTicketData = {
@@ -43,7 +45,7 @@ const TicketForm = ({ ticket }) => {
     e.preventDefault();
 
     if (EDITMODE) {
-      const res = await fetch(`/api/Tickets/${ticket._id}`, {
+      const res = await fetch(`${API_URL}/api/Tickets/${ticket._id}`, {
         method: "PUT",
         body: JSON.stringify({ formData }),
         "content-type": "application/json",
@@ -53,7 +55,7 @@ const TicketForm = ({ ticket }) => {
         throw new Error("Failed to update Ticket.");
       }
     } else {
-      const res = await fetch("/api/Tickets", {
+      const res = await fetch(`${API_URL}/api/Tickets`, {
         method: "POST",
         body: JSON.stringify({ formData }),
         "content-type": "application/json",
